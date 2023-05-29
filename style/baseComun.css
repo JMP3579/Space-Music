@@ -1,0 +1,393 @@
+/* ---------------------------------------------------------- 
+ ------------------------ Navegacion ------------------------ 
+ ------------------------------------------------------------ */
+
+ .navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: var(--navBarSize);
+
+    padding-top: 1.5rem;
+
+    background-color: var(--principal);
+    box-shadow: var(--navBarSizeShadow) 0 0 var(--secundario);
+    overflow-x: hidden;
+    z-index: 100;
+    transition: width 0.5s;
+}
+
+/* Elementos navbar*/
+.navbar__nav {
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+
+/* ------------------------- Logo ----------------------------- */
+.navbar__header {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+
+}
+
+/* Imagen del logo */
+.navbar__header img{
+    width: 3.6rem;
+    height: 4.5rem;
+    background-color: var(--colorLetra1);
+    border-radius: 50%;
+    margin-right: 3rem;
+
+}
+
+/* ------------------Barra de navegacion -----------------------*/
+.nav__item {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+/* Links navbar */
+.nav__item a {
+    color: var(--colorLetra1);
+
+    display: flex; 
+    align-items: center;
+
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 3rem;
+}
+
+/* Iconos de opciones del nav */
+.icon {
+    margin: 0 0.5rem;
+    height: var(--tamIcono);
+    min-width: var(--tamIcono);
+    max-width: var(--tamIcono);
+}
+
+/* Titulo de la opcion del nav */
+.nav__item p {
+    white-space: nowrap;
+    margin:auto;
+}
+
+/* Cambio de diseño si estamos en la pagina de la opciones eleguida */
+.navbar__nav .active {
+    background-color: var(--secundario);
+}
+
+.navbar__nav .active p {
+    color: var(--fondoNavbar);
+}
+
+/* Links de redes sociales y politica de privacidad */
+.nav__link {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+    width: calc(100% - 1rem);
+}
+
+/* Mq tablet */
+@media screen and (max-height: 768px){
+    .navbar__nav a{
+        margin-bottom: .5rem ;
+        height: 2rem;
+    }
+
+    .nav__link{
+        margin-bottom: 0rem;
+    }
+    .nav__link a{
+        margin-bottom: .25rem;
+    }
+}
+
+/* --------------------------------------------- */
+/* -------------Animacion link------------------ */
+.nav__item a::before{
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    left: 1.5rem;
+    margin-top: 2.7rem;
+    background-color: var(--secundario);
+
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+.nav__link .nav__item a::before {
+    left: 0.5rem;
+}
+
+.nav__item:hover a::before{
+    width: 100%;
+    transition: ease-in-out width 0.5s;
+}
+
+/* ---------------------------------------------- */
+/* -------------------Animacion de navbar -----------------*/
+.navbar__label {
+    position:fixed;
+    left: calc(var(--varBarSizeTotal) - 1.2rem);
+    top: 45%;
+    background-color: var(--secundario);
+    border-radius: 1rem;
+    z-index: 1;
+    align-items: center;
+}
+
+/* Icono de ampliar el menu */
+.navbar__label svg {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Ajuste de tamaños cuando el menu está abierto */
+.navbar__input{
+    visibility: hidden;
+}
+.navbar__input:checked + .contenedorGlobal .navbar__header{
+    padding-left: 4rem;
+    transition: all 0.5s;
+}
+.navbar__input:checked + .contenedorGlobal .navbar{
+    width: var(--navBarCheckPc);
+}
+
+.navbar__input:checked + .contenedorGlobal .contenedor{
+    width: var(--mainSizeCheck);
+    transition: width 0.5s;
+}
+
+.navbar__input:checked + .contenedorGlobal .navbar__label{
+    position: fixed;
+    left: calc(var(--navBarCheckPcTotal) - 1.5rem);
+    transition: left 0.5s;
+    z-index: 1000;
+}
+
+.navbar__input:checked + .contenedorGlobal .contenedor .main__header{
+    width: var(--mainSizeCheck);
+    transition: width 0.5s;
+}
+
+.navbar__input:checked + .contenedorGlobal .contenedor .main__footer{
+    width: var(--mainSizeCheck);
+    transition: width 0.5s;
+}
+
+/* Ajustte de tamaños con el menu abierto de tablet */
+@media screen and (max-width: 768px) {
+    .navbar__input:checked + .contenedorGlobal .navbar{
+        width: var(--navBarCheckTb);
+    }
+
+    .navbar__input:checked + .contenedorGlobal .navbar__label{
+        position: fixed;
+        left: calc(var(--navBarCheckTb) - 1rem);
+    }
+
+    .navbar__input:checked + .contenedorGlobal .contenedor{
+        width: var(--mainSizeCheckTb);
+    }
+
+    .navbar__input:checked + .contenedorGlobal .contenedor .main__header{
+        width: var(--mainSizeCheckTb);
+    }
+
+    .navbar__input:checked + .contenedorGlobal .contenedor .main__footer{
+        width: var(--mainSizeCheckTb);
+        height: 5rem;
+    }
+
+    .navbar__input:checked + .contenedorGlobal .navbar__header h1{
+        margin-left: 2rem;
+
+    }
+}
+
+/* Ajustte de tamaños con el menu abierto de movil */
+@media (max-width: 600px) {
+    
+    .navbar__input:checked + .contenedorGlobal .navbar{
+        width: calc(100% - var(--navBarSizeShadow));
+    }
+    .navbar__input:checked + .contenedorGlobal .navbar__label{
+        left: calc(100% - 1.25rem);
+    }
+
+    .navbar__input:checked + .contenedorGlobal .navbar__header {
+        margin-left: 10rem;
+
+    }
+ }
+
+/* --------------------------------------------- */
+/* ---------------------------------------------------------- 
+ ------------------------------------------------------------
+ ------------------- Contenido Principal -------------------- 
+ ------------------------------------------------------------
+ ------------------------------------------------------------ */
+ .contenedor {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--mainSize);
+    transition: width 0.5s;
+}
+
+/* Contenedor del contenido principal de la pagina */
+.main__body{
+    position:absolute;
+    top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 100%;
+    padding-bottom: 6rem;
+    align-items: center;
+}
+
+/* ----------------------------------------------------------
+ --------------------------- Header ------------------------- 
+ ------------------------------------------------------------ */
+.main__header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    
+    text-align: right;
+    width: var(--mainSize);
+    height: 3rem;
+    z-index: 10;
+    padding-top: 0.8rem;
+    overflow: hidden;
+
+}
+
+/* Links inicio sesion, registro y usuarios */
+.main__header a{
+    padding: 2rem 3rem;
+    color: var(--colorLetra1);
+    font-size: 1.1rem;
+}
+
+/* Cambio de color al pasar el raton */
+.main__header a:hover{
+    background-color: var(--secundario);
+}
+
+/**************************** Menú desplegable ******************/
+/* Menu desplegable con opciones cuando se ha iniciado sesion*/
+.nav2{
+    position: absolute;
+    top: 0;
+    right: 7rem;
+    width: 5rem;   
+}
+
+.nav2 li a{ /* Opciones del menu desplegable*/
+    width: 10rem;
+    display: block;
+    padding: 0.9rem 1rem;
+    text-align: center;
+}
+
+.nav2 li #nombre_header{ /* Nombre del usuario */
+    padding-top: 1.2rem;
+    height: calc(3rem + 10px);
+}
+
+.nav2 img{ /* Foto perfil */
+    position: fixed;
+    top: 0.25rem;
+    right: 13rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 25%;
+}
+
+.nav2 a:hover{ /* Cambio de color hover*/
+    background-color: var(--secundario);
+}
+
+.nav2 > li{
+    float: left;
+}
+
+.nav2 li ul{
+    display:none;
+    position: absolute;
+    }
+
+.nav2:hover > li ul{
+        display: block;
+        position: fixed;
+        padding-top: 10px;
+        top: calc(3rem);
+    }
+
+.nav2 li ul li{
+    position: relative;
+}
+
+.nav2 li ul li a{
+    text-align: center;
+    background-color:#161616;
+}
+
+.buscador_usuario,
+.boton__cancion,
+.buscador_cancion{ /* Botones */
+    background-color: var(--secundario);
+    color: var(--colorLetra1);
+    border-radius: .5rem;
+    text-align: center;
+    width: 20rem;
+    z-index: 1000;
+    padding: 0.2rem;
+}
+
+/* ----------------------------------------------------------
+ --------------------------- Footer ------------------------- 
+ ------------------------------------------------------------ */
+
+ .main__footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    margin-top: 1rem;
+    height: 3rem;
+    width: var(--mainSize); 
+
+    background-color: var(--principal);
+    border-top-style: solid;
+    border-top-width: 10px;
+    border-top-color: var(--secundario);  
+}
+
+/* Mensaje del footer */
+.main__footer p{
+    text-align: center;
+    margin-top: 10px;
+    color : var(--colorLetra1);
+    font-weight: bold;
+}
+
+/* Mq movil */
+@media (max-width: 600px) {
+    .main__footer {
+        height: 5rem;
+        padding: 0 5rem;
+    }
+}

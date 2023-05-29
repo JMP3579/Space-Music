@@ -1,0 +1,60 @@
+/* ESTILO DE PÁGINA CUENTA.HTML */
+/* Ordenacion de los campos */
+.campo {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+.campos {
+    display: grid;
+    grid-template-rows: repeat(6 1fr);
+    margin: 4rem;
+    gap: 1rem;
+}
+
+/* Mq tablet */
+@media (min-width: 768px) {
+    .campos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+    .main__body {
+        padding: 2rem 5%;
+    }
+
+    .campo p{
+        padding-left: 10rem;
+    }
+}
+
+
+/* Campo de identificacion de apartados de cuenta */
+.campo p { 
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+/* Colocacion de la foto de perfil */
+#pfp {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#pfp img{
+    width: 8rem;
+    height: 8rem;
+    grid-column: 1;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#pfp input {
+    grid-row: 1;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}

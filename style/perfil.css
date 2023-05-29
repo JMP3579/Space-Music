@@ -1,0 +1,102 @@
+/* -----------------Listas reproduccion-----------------*/
+/* Imagen de lista de reproduccion */
+.play_list .imagen-playlist {
+    height: 15rem;
+    width: 15rem;
+    padding-bottom: 1rem;
+}
+
+.play_list {
+    border-radius: 5%;
+    background-color: var(--principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: 10px 10px 0 var(--secundario);
+}
+
+.play_lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+}
+
+/* Mq tablet */
+@media (max-width: 768px) {
+    .play_lists {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Vantana de nombre de play_list */
+.ventana_playlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.ventana_playlist .pregunta {
+    padding: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 1;
+}
+
+.ventana_playlist input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 2;
+
+    padding: 1rem;
+    background-color: var(--principal);
+    border: none;
+    border-radius: 5%;
+    height: 3rem;
+    width: 90%;
+    margin: 0 5%;
+}
+
+.ventana_playlist #errores {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 4;
+}
+
+.ventana_eliminar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+@media (max-width:768px){
+    .ventana_playlist {
+        width: 21.5rem;
+        height: 15rem;
+        margin-left: 2.7rem;
+    }
+
+    .ventana_eliminar {
+        margin-left: 3rem;
+        width: 21.5rem;
+    }
+
+    #nombre_cancion{
+        width: 10rem;
+    }
+}
+
+/* -----------  Icono de eliminar playlist--------------- */
+/* Borrar plalist */
+.basura-playlist {
+    position: relative;
+    top: -15.5rem;
+    left: 8rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+

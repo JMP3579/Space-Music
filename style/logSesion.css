@@ -1,0 +1,145 @@
+/* Contenedor general */
+.main{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Imputs de cambio de elementos de tu cuenta*/
+.info input{
+    box-sizing: border-box;
+    width: 100%;
+    height: 3rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 3px solid #2EAF6D;
+
+    line-height: 43px;
+    font-family: 'Keania One';
+    padding-left: 1rem;
+}
+
+.info input::placeholder {
+    color: #FFFFFF;
+}
+
+/* Campo de identificacion de apartados de cuenta */
+.info p { 
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 43px;
+    padding: 0.7rem;
+    border-radius: .5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.info div {
+    width: 100%;
+}
+
+.info {
+    text-align: left;
+}
+
+/* Contenedor del formulario */
+.sesion{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    width: 55rem;
+    height: 33rem;
+    padding: 3rem;
+
+    /* Centrar */
+    top:40%;
+    transform: translate(-50%,-50%);
+    left:50%;
+
+}
+
+/* Distribucion del formulario */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.7fr 1fr;
+    width: 100%;
+    gap: 1rem;
+
+}
+
+/* Columna de izq */
+.info__cuenta{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 1;
+
+}
+
+/* -----------------Botones y condiciones------------------- */
+.confirmaciones{
+    display: grid;
+    grid-template-rows: 1fr 1fr ;
+    height: 8rem;
+
+}
+
+.borrar__boton,
+.enviar__boton{
+    border-radius: 15%;
+    padding: 0.5rem;
+}
+
+.botones {
+    display: flex;
+    gap: 1rem;
+    padding: 0 35%;
+}
+
+/* -------------Imagen google facebook--------------- */
+.cuentas {
+    padding: 0 20%;
+}
+.cuenta_aux {
+    padding:  0 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.cuenta_aux img{
+    width: 2rem;
+    height: 2rem;
+
+}
+
+/* Mq tablet - movil */
+@media (max-width: 768px ) {
+
+    .main{
+        width: 100%;
+        height: 130vh;
+    }
+    
+    .sesion {
+        position: relative;
+        top: 30rem;
+        height: 63rem;
+        width: 70%;
+        margin: 5rem 3rem 1rem 3rem;
+    }
+    .formulario {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 20rem;
+    }
+    .info input{ 
+        width: 100%;
+    }
+    .cuentas {
+        display: flex;
+    }
+}

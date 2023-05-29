@@ -1,0 +1,21 @@
+/* -----------  Icono de eliminar cancion --------------- */
+/* Borrar cancion */
+.basura-cancion{
+    position: relative;
+    top: -3.5rem;
+    background-color: var(--principal);
+    border-radius: 5%;
+    padding: 0.3rem;
+    padding: 0.5rem 2.5rem;
+    width: 7rem;
+    height: 2.5rem;
+}
+
+@media (max-width:768px){
+    .basura-cancion{
+        position: relative;
+        top: 0rem;
+        padding: .25rem 2.5rem;
+        width: 6.5rem;
+    }
+}
